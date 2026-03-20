@@ -385,7 +385,7 @@ class TestToggleSkillIntegration:
         (skill_path / "SKILL.md").write_text("description: Test skill")
 
         # Create disabled directory structure
-        disabled_dir = tmp_path / "disabled" / "OpenCode" / "skill"
+        disabled_dir = tmp_path / "disabled" / "opencode" / "skill"
         disabled_dir.mkdir(parents=True)
 
         # Create skill object
@@ -431,7 +431,7 @@ class TestToggleSkillIntegration:
         skill_file.write_text("description: A simple skill")
 
         # Create disabled directory structure
-        disabled_dir = tmp_path / "disabled" / "OpenCode" / "skill"
+        disabled_dir = tmp_path / "disabled" / "opencode" / "skill"
         disabled_dir.mkdir(parents=True)
 
         skill = Skill(
@@ -649,7 +649,7 @@ class TestAsyncFunctions:
         (skill_path / "SKILL.md").write_text("description: Async test")
 
         # Create disabled directory structure
-        disabled_dir = tmp_path / "disabled" / "OpenCode" / "skill"
+        disabled_dir = tmp_path / "disabled" / "opencode" / "skill"
         disabled_dir.mkdir(parents=True)
 
         skill = Skill(
@@ -707,12 +707,12 @@ class TestStateManagement:
             from switchboard.config.state import load_state, save_state
 
             # Save state
-            s = AppState(disabled={"Cursor": {"test": {"cmd": "echo"}}})
+            s = AppState(disabled={"cursor": {"test": {"cmd": "echo"}}})
             save_state(s)
 
             # Load it back
             loaded = load_state()
-            assert loaded.disabled == {"Cursor": {"test": {"cmd": "echo"}}}
+            assert loaded.disabled == {"cursor": {"test": {"cmd": "echo"}}}
         finally:
             state_module.get_state_file = original
 
@@ -734,11 +734,11 @@ if __name__ == "__main__":
             from switchboard.config.state import load_state, save_state
 
             # Save state
-            s = AppState(disabled={"Cursor": {"test": {"cmd": "echo"}}})
+            s = AppState(disabled={"cursor": {"test": {"cmd": "echo"}}})
             save_state(s)
 
             # Load it back
             loaded = load_state()
-            assert loaded.disabled == {"Cursor": {"test": {"cmd": "echo"}}}
+            assert loaded.disabled == {"cursor": {"test": {"cmd": "echo"}}}
         finally:
             state_module.get_state_file = original
