@@ -35,7 +35,7 @@ jobs:
         run: uv run pytest tests/ -v --tb=short
 
       - name: Check syntax (all source files)
-        run: uv run python -m py_compile src/switchboard/*.py src/switchboard/config/*.py
+        run: uv run python -m compileall -q src/switchboard
 
   lint:
     name: Lint
